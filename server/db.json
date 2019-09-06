@@ -1,0 +1,76 @@
+{
+  "friends": [
+    {
+      "id": "2",
+      "name": "Friend 2"
+    },
+    {
+      "id": "3",
+      "name": "Friend 3"
+    },
+    {
+      "id": "4",
+      "name": "Friend 4"
+    },
+    {
+      "id": "5",
+      "name": "Friend 5"
+    }
+  ],
+  "chats": [
+    {
+      "friendId": "2",
+      "id": "1"
+    },
+    {
+      "friendId": "3",
+      "id": "rKZHuWk"
+    },
+    {
+      "friendId": "4",
+      "id": "m2Eql2D"
+    }
+  ],
+  "messages": [
+    {
+      "type": "message",
+      "text": "asdfasdfasdfsa",
+      "chatId": "1",
+      "id": 1
+    },
+    {
+      "text": "asdf\nasdfasdf",
+      "chatId": "rKZHuWk",
+      "id": 2
+    },
+    {
+      "text": "asdf\nasdfasdf",
+      "is_received": true,
+      "chatId": "rKZHuWk",
+      "id": 3
+    },
+    {
+      "text": "asdflasdfasdflasdf",
+      "chatId": "m2Eql2D",
+      "id": 4
+    },
+    {
+      "text": "asdflasdfasdflasdf",
+      "is_received": true,
+      "chatId": "m2Eql2D",
+      "id": 5
+    },
+    {
+      "type": "message",
+      "text": "asdfasDF\nasdfasdf",
+      "chatId": "1",
+      "id": 6
+    },
+    {
+      "text": "asdfasDF\nasdfasdf",
+      "is_received": true,
+      "chatId": "1",
+      "id": 7
+    }
+  ]
+}

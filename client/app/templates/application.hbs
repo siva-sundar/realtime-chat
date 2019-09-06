@@ -1,0 +1,44 @@
+<div class="friends-list">
+  <div class="actions-bar actions-bar px-3 py-2">
+    {{svg-jar "user" class="user-profile-icon"}}
+    <strong class="px-2">{{currentUser.name}}</strong>
+    <span class="add-new-thread ml-auto" {{action "addNewThread"}}>
+      {{svg-jar "plus"}}
+    </span>
+  </div>
+  {{#chat-threads-list
+    chatThreads=chatThreads
+    params=(hash _embed="messages" _expand="friend")
+    resourceName="chat-thread"
+    onSelected=(action "onSelected")
+    currentThread=currentThread as |listItem|}}
+    <div
+     class="row no-gutters px-3 py-2 user-list-item  {{if (equal currentThread.id listItem.thread.id) "active"}}"
+     {{action listItem.showChatHistory listItem.thread}}
+     >
+      <div class="col-3">
+        {{svg-jar "user" class="user-profile-icon"}}
+      </div>
+      <div class="col-6">
+        <div><strong>{{listItem.thread.friend.name}}</strong></div>
+        <div>{{listItem.thread.messages.lastObject.text}}</div>
+      </div>
+      <div class="col-3">{{listItem.thread.time}}</div>
+    </div>
+  {{/chat-threads-list}}
+</div>
+<div class="chat-history-pane">
+  {{#if currentThread}}
+    {{chat-history currentThread=currentThread updateThread=(action "updateThread")}}
+  {{/if}}
+</div>
+
+{{#if canShowAddNewThreadModal}}
+  {{add-new-thread
+    params=(hash _embed="chats")
+    resourceName="friend"
+    onSelected=(action "onSelected")
+    onClose=(action "onClose")
+  }}
+{{/if}}
+{{outlet}}

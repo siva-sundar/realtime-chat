@@ -1,0 +1,25 @@
+<div class="user-search-bar p-2">
+  {{input
+    classNames="form-control"
+    value=searchText
+    input=(action "fetchThreads" searchText)
+    autocomplete="off"
+    placeholder="Search or start a new chat"
+  }}
+</div>
+<div class="user-list">
+  {{#each chatThreads as |thread|}}
+    {{yield
+      (hash
+       thread=thread
+       showChatHistory=(action "showChatHistory"))
+    }}
+  {{else}}
+    <div
+     class="row no-gutters py-2 user-list-item justify-content-center"
+    >
+     <span>List is empty</span>
+    </div>
+
+  {{/each}}
+</div>

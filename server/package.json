@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start-server": "node_modules/.bin/json-server db.json --no-cors --watch",
+    "start-websocket-server": "node index.js"
+  },
+  "dependencies": {
+    "json-server": "^0.15.1",
+    "node-fetch": "^2.6.0",
+    "ws": "^7.1.2"
+  }
+}

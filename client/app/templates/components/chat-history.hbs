@@ -1,0 +1,16 @@
+<div class="actions-bar actions-bar px-3 py-2">
+  {{svg-jar "user" class="user-profile-icon"}}
+  <div class="px-2 font-large">{{currentThread.friend.name}}</div>
+</div>
+<div class="chat-messages">
+  {{#each currentThread.messages as |message|}}
+    <div class="py-1 d-flex {{unless message.is_received "justify-content-end"}}">
+      <div class="message-list-item {{if message.is_received "left-arrow" "right-arrow"}}">{{message.text}}</div>
+    </div>
+  {{/each}}
+</div>
+{{chat-input
+  value=value
+  classNames="d-flex chat-box"
+  onSendMessage=(action "onSendMessage" currentThread)
+}}
